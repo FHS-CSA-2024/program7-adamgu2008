@@ -1,30 +1,39 @@
-package src.main.java;
-//import stuff here
-
-//Your code here
+import java.util.Scanner;
+import java.lang.Math;
 
 public class Program7{
-	//Define your final variables here
-	// **HINT: Maybe the conversion rates?????**
-
-
-	public static void main(String[] args){
-		//Make you own test code here
-		Program7 tester = new Program7();
-		
-		double myTestVal = 0.0;
-		
-		myTestVal = tester.convertMoney(0,0,0);
-		
-		System.out.println(myTestVal);
-	}
-	
-	
-	
-	public double convertMoney(int schruteBucks, int stanleyNickels, int klevins){
-		//implement a function that converts from the old format to the new format
-		
-	}
-	
-	
+    public double convert(int stanOld, int klevOld, int schruteOld) {
+        double total = schruteOld;
+        double newKlev = klevOld;
+        newKlev += (double) stanOld/12;
+        total += newKlev/20;
+        total *= 100;
+        //total = Math.ceil(total);
+        total /= 100;
+        return total;
+    }
+    
+    public static void main(String[] args){
+        //scanners get input
+        Scanner scan1 = new Scanner(System.in);
+        System.out.println("Enter Schrute-bucks: ");
+        int schruteOld = scan1.nextInt();
+        Scanner scan2 = new Scanner(System.in);
+        System.out.println("Enter Klevins: ");
+        int klevOld = scan2.nextInt();
+        Scanner scan3 = new Scanner(System.in);
+        System.out.print("Enter Stanley-nickels: ");
+        int stanOld = scan3.nextInt();
+        
+        //convert
+        Program7 myTester = new Program7();
+        double totalVal = myTester.convert(stanOld, klevOld, schruteOld);
+        //print new value
+        System.out.print("New value: "+totalVal);
+    }
 }
+
+/*
+ * 
+ * 
+ */
